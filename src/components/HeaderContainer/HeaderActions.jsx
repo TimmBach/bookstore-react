@@ -1,16 +1,17 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaSearch } from "react-icons/fa";
 import { GiShoppingCart } from "react-icons/gi";
 
-const HeaderActions = () => {
+const HeaderActions = ({ openSearch }) => {
   return (
     <>
-      <div className="flex justify-between items-center space-x-8">
+      <div className="hidden md:flex justify-between items-center space-x-8">
         {/* wishlist */}
         <div className="flex items-center flex-col ">
           <FaRegHeart />
           <h3 className="text-gray-600">Wishlist</h3>
         </div>
+
         {/* cart */}
         <div className="flex items-center flex-col">
           <GiShoppingCart />
@@ -28,6 +29,11 @@ const HeaderActions = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div className="md:hidden absolute right-10 top-3 flex ml-3 items-center justify-between ">
+        {/* <FaRegHeart /> */}
+        <FaSearch className=" text-xl mr-4" onClick={openSearch} />
+        <GiShoppingCart className="text-xl" />
       </div>
     </>
   );
